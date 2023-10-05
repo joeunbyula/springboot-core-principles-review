@@ -2,14 +2,24 @@ package hello.core.order;
 
 import hello.core.discount.DiscountPolicy;
 import hello.core.discount.FixDiscountPolicy;
+import hello.core.discount.RateDiscountPolicy;
 import hello.core.member.Member;
 import hello.core.member.MemberRepository;
 import hello.core.member.MemoryMemberRepository;
 
 public class OrderServiceImpl implements OrderService {
 
-    private final DiscountPolicy discountPolicy = new FixDiscountPolicy();
-    private final MemberRepository memberRepository = new MemoryMemberRepository();
+    //인터페이스에도 의존, 구현체에도 의존하고있는 문제점이 발생!
+    //private final DiscountPolicy discountPolicy = new FixDiscountPolicy();
+    //private final DiscountPolicy discountPolicy = new RateDiscountPolicy();
+    private DiscountPolicy discountPolicy;
+    private final MemberRepository memberRepository;
+
+    public OrderServiceImpl(MemberRepository memberRepository,DiscountPolicy discountPolicy) {
+        this.memberRepository = memberRepository;
+        this.discountPolicy = discountPolicy;
+    }
+
     @Override
     public Order createOrder(Long memberId, String itemName, int itemPrice) {
 
