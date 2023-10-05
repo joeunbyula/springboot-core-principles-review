@@ -10,7 +10,7 @@ import hello.core.order.OrderServiceImpl;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-@Configuration //스프링 전환
+@Configuration //스프링 전환!
 public class AppConfig {
 
     //역할과 구현을 명확하게 분리
