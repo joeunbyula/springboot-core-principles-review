@@ -12,6 +12,7 @@ public class MemberApp {
 //        AppConfig appConfig = new AppConfig();
 //        MemberSerive memberSerive = appConfig.memberSerive();
 
+        //ApplicationContext => 스프링컨테이너이며 인터페이스다.
         ApplicationContext applicationContext = new AnnotationConfigApplicationContext(AppConfig.class);
         MemberService memberService = applicationContext.getBean("memberService",MemberService.class);
 
