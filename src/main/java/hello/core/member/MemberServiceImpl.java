@@ -1,6 +1,6 @@
 package hello.core.member;
 
-public class MemberServiceImpl implements MemberSerive{
+public class MemberServiceImpl implements MemberService {
 
     //인터페이스에도 의존하고 구현체에도 의존하여 DIP위반
     //    private final MemberRepository memberRepository = new MemoryMemberRepository();
