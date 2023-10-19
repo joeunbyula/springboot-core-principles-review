@@ -1,14 +1,16 @@
 package hello.core.order;
 
+import hello.core.annotation.MainDiscountPolicy;
 import hello.core.discount.DiscountPolicy;
 import hello.core.member.Member;
 import hello.core.member.MemberRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 @Component
-@RequiredArgsConstructor
+//@RequiredArgsConstructor
 public class OrderServiceImpl implements OrderService {
 
     //2) 생성자 의존성 주입(Best!!)
@@ -17,10 +19,11 @@ public class OrderServiceImpl implements OrderService {
 //
 //   //@Autowired //생성자가 하나인 경우엔 생략 가능!
     //@RequiredArgsConstructor 을 통한 생성자 생략!
-//    public OrderServiceImpl(MemberRepository memberRepository,DiscountPolicy discountPolicy) {
-//        this.memberRepository = memberRepository;
-//        this.discountPolicy = discountPolicy;
-//    }
+    public OrderServiceImpl(MemberRepository memberRepository,@MainDiscountPolicy DiscountPolicy discountPolicy) {
+        this.memberRepository = memberRepository;
+        this.discountPolicy = discountPolicy;
+        // this.discountPolicy = rateDiscountPolicy; //@Autowired 필드명 매칭 : 조회 빈이 2개인 경우 사용하고싶은 빈 필드명으로 기입해주면 해당 컴포넌트가 사용된다.
+    }
 
     //1) 인터페이스에도 의존, 구현체에도 의존하고있는 문제점이 발생!
     //private final DiscountPolicy discountPolicy = new FixDiscountPolicy();
