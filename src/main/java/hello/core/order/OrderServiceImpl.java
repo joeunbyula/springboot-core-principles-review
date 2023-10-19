@@ -13,7 +13,7 @@ public class OrderServiceImpl implements OrderService {
     //private final DiscountPolicy discountPolicy = new FixDiscountPolicy();
     //private final DiscountPolicy discountPolicy = new RateDiscountPolicy();
 
-    //2) 생성자 의존성 주입
+    //2) 생성자 의존성 주입(Best!!)
     private final DiscountPolicy discountPolicy;
     private final MemberRepository memberRepository;
 //
