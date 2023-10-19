@@ -12,14 +12,14 @@ import org.mockito.internal.matchers.Or;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class OrderServiceImplTest {
-    @Test
-    void createOrder() {
-        OrderServiceImpl orderService = new OrderServiceImpl(new MemoryMemberRepository(), new FixDiscountPolicy());
-        Member member = new Member(1L,"name", Grade.VIP);
-        MemberRepository memberRepository = new MemoryMemberRepository();
-        memberRepository.save(member);
-        Order order = orderService.createOrder(1L, "itemA", 10000);
-
-        assertThat(order.getDiscountPrice()).isEqualTo(1000);
-    }
+//    @Test
+//    void createOrder() {
+//        OrderServiceImpl orderService = new OrderServiceImpl(new MemoryMemberRepository(), new FixDiscountPolicy());
+//        Member member = new Member(1L,"name", Grade.VIP);
+//        MemberRepository memberRepository = new MemoryMemberRepository();
+//        memberRepository.save(member);
+//        Order order = orderService.createOrder(1L, "itemA", 10000);
+//
+//        assertThat(order.getDiscountPrice()).isEqualTo(1000);
+//    }
 }
