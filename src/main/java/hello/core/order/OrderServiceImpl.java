@@ -35,7 +35,7 @@ public class OrderServiceImpl implements OrderService {
 //        this.memberRepository = memberRepository;
 //    }
 
-    //4) 필드 주입 ( 권장하지않는 방법이다.. 외부에서 변경이 불가능하다 )
+    //4) 필드 주입 ( 권장하지않는 방법이다.. 외부에서 변경이 불가능하다 setter를 만들어야해서 좋지않다.)
 //    @Autowired private MemberRepository memberRepository;
 //    @Autowired private DiscountPolicy discountPolicy;
 
